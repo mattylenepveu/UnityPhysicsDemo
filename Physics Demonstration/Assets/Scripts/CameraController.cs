@@ -12,15 +12,15 @@ public class CameraController : MonoBehaviour
 	private GameObject character;
 	private Vector2 mouseLook;
 	private Vector2 smoothV;
-	private bool crouching;
-	private float height;
+	//private bool crouching;
+	//private float height;
 
 	// Use this for initialization
 	void Awake() 
 	{
 		character = this.transform.parent.gameObject;
-		crouching = false;
-		height = initialHeight;
+		//crouching = false;
+		//height = initialHeight;
 	}
 	
 	// Update is called once per frame
