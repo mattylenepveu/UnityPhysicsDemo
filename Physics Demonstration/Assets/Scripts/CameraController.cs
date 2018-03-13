@@ -6,22 +6,24 @@ public class CameraController : MonoBehaviour
 {
 	public float sensitivity = 5.0f;
 	public float smoothing = 2.0f;
-	public float initialHeight = 1.0f;
-	public float crouchHeight = 0.5f;
+	//public float initialHeight = 1.0f;
+	//public float crouchHeight = 0.5f;
 
 	private GameObject character;
 	private Vector2 mouseLook;
 	private Vector2 smoothV;
 	//private bool crouching;
 	//private float height;
+    //private float heightDiff;
 
 	// Use this for initialization
 	void Awake() 
 	{
-		character = this.transform.parent.gameObject;
+		character = transform.parent.gameObject;
 		//crouching = false;
 		//height = initialHeight;
-	}
+        //heightDiff = initialHeight - crouchHeight;
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate() 
@@ -38,31 +40,35 @@ public class CameraController : MonoBehaviour
 		transform.localRotation = Quaternion.AngleAxis (-mouseLook.y, Vector3.right);
 		character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
 
-		/*float heightDiff = initialHeight - crouchHeight;
+		//if (Input.GetKeyDown(KeyCode.LeftControl)) 
+		//{
+		//	if (crouching) 
+		//	{
+		//		crouching = false;
+		//	} 
+		//	else 
+		//	{
+		//		crouching = true;
+		//	}
+		//}
 
-		if (Input.GetKeyDown(KeyCode.LeftShift)) 
-		{
-			if (crouching) 
-			{
-				crouching = false;
-			} 
-			else 
-			{
-				crouching = true;
-			}
-		}
+		//if (crouching) 
+		//{
+		//	height = crouchHeight;
+		//	transform.position = new Vector3(transform.position.x, crouchHeight, 
+		//		transform.position.z);
 
-		if (crouching) 
-		{
-			height = crouchHeight;
-			transform.position = new Vector3 (transform.position.x, transform.position.y - heightDiff, 
-				transform.position.z);
-		} 
-		else 
-		{
-			height = initialHeight;
-			transform.position = new Vector3 (transform.position.x, transform.position.y + heightDiff, 
-				transform.position.z);
-		}*/
+		//} 
+		//else 
+		//{
+		//	height = initialHeight;
+		//	transform.position = new Vector3(transform.position.x, initialHeight, 
+		//		transform.position.z);
+		//}
 	}
+
+    //public float GetHeight()
+    //{
+    //    return height;
+    //}
 }
