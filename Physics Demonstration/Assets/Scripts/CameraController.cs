@@ -37,38 +37,10 @@ public class CameraController : MonoBehaviour
 		mouseLook += smoothV;
 		mouseLook.y = Mathf.Clamp (mouseLook.y, -60.0f, 60.0f);
 
-		transform.localRotation = Quaternion.AngleAxis (-mouseLook.y, Vector3.right);
+		transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
 		character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
 
-		//if (Input.GetKeyDown(KeyCode.LeftControl)) 
-		//{
-		//	if (crouching) 
-		//	{
-		//		crouching = false;
-		//	} 
-		//	else 
-		//	{
-		//		crouching = true;
-		//	}
-		//}
-
-		//if (crouching) 
-		//{
-		//	height = crouchHeight;
-		//	transform.position = new Vector3(transform.position.x, crouchHeight, 
-		//		transform.position.z);
-
-		//} 
-		//else 
-		//{
-		//	height = initialHeight;
-		//	transform.position = new Vector3(transform.position.x, initialHeight, 
-		//		transform.position.z);
-		//}
+        Rigidbody rb = character.GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
 	}
-
-    //public float GetHeight()
-    //{
-    //    return height;
-    //}
 }
