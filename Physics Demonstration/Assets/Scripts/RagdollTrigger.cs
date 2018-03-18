@@ -2,21 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RagdollTrigger : MonoBehaviour {
+//--------------------------------------------------------------------------------
+// Obtained from: https://aie.instructure.com/courses/41/pages/resources#ragdoll
+//--------------------------------------------------------------------------------
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+// Creates a class for the RagdollTrigger script
+public class RagdollTrigger : MonoBehaviour 
+{
+	//--------------------------------------------------------------------------------
+	// Function is called just before the update function (Not being used).
+	//--------------------------------------------------------------------------------
+	void Start () {}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	//--------------------------------------------------------------------------------
+	// Function is called once every frame (Not being used).
+	//--------------------------------------------------------------------------------
+	void Update () {}
 
+	//--------------------------------------------------------------------------------
+	// Function runs when something enters a trigger
+	//
+	// Param:
+	// 		other: Refers to the collider that has entered the trigger
+	//--------------------------------------------------------------------------------
     void OnTriggerEnter(Collider other)
     {
+		// Gets the ragdoll component of the colliding object
         Ragdoll ragdoll = other.gameObject.GetComponentInParent<Ragdoll>();
+
+		// Sets Ragdoll to be on if the ragdoll component is not null
         if (ragdoll != null)
             ragdoll.RagdollOn = true;
     }
